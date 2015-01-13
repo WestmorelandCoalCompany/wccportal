@@ -31,8 +31,7 @@ define([
                 ui: {
                     active: '#js-current-op',
                     next: 'a.js-next-op',
-                    prev: 'a.js-previous-op',
-                    print: 'button.js-print'
+                    prev: 'a.js-previous-op'
                 },
 
                 //  Events
@@ -41,17 +40,9 @@ define([
                     'click @ui.prev': 'previous'
                 },
 
-                events: {
-                    'click @ui.print': 'printReport'
-                },
-
                 //  Event Handlers
                 onUpdateTitle: function(operation) {
                     this.ui.active.text(operation);
-                },
-
-                printReport: function() {
-                    window.print();
                 }
             });
 
@@ -125,8 +116,12 @@ define([
                 },
 
                 // Events
-                collectionEvents: {
-                    'reset': 'render'
+                events: {
+                    'click button.js-print': 'printReport'
+                },
+
+                printReport: function() {
+                    window.print();
                 },
 
                 // Formatters

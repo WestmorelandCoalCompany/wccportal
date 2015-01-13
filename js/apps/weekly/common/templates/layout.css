@@ -33,7 +33,11 @@
 
     @page {
         size: auto;
-        margin: 8mm 0mm 15mm 0mm;
+        margin: 15mm 0mm 15mm 0mm;
+    }
+
+    @page :first {
+        margin-top: 0mm;
     }
 
     body {
