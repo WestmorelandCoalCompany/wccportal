@@ -15,7 +15,7 @@ define([
                         name: 'main:api',
                         events: {
                             reply: {
-                                'users:get:current': 'current'
+                                'users:current': 'current'
                             }
                         }
                     }

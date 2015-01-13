@@ -97,13 +97,25 @@ define([
                                 $.when(xhr).then(onSuccess, onFailure);
                             }, this),
 
+                            // get the user's location
+                            userLocation: ['operations', _.bind(function(callback, results) {
+                                var xhr = this.main.request('users:current'),
+                                    onSuccess = function(location) {callback(null, results.operations, location);},
+                                    onFailure = function(err) {callbac(err);};
+
+                                $.when(xhr).then(onSuccess, onFailure)
+                            }, this)],
+
                             // get the appropriate default application if possible
                             defaultOp: ['operations', _.bind(function(callback, results) {
                                 var urlOp = this.getURLOperation();
 
                                 if (urlOp) {
-                                    callback(null, urlOp)
-                                } else if (results.operations.selected) {
+                                    callback(null, urlOp);
+                                } else if (results.userLocation) {
+                                    callback(null, results.userLocation);
+                                }
+                                else if (results.operations.selected) {
                                     callback(null, results.operations.selected.get('Title'));
                                 } else {
                                     callback(null, 'Beulah');

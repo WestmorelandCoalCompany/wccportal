@@ -10,6 +10,22 @@ define([
     'backbone.stickit'
 ], function (App, CommonViews, LayoutTpl, EntryTpl, EmptyTpl, ListTpl, FormTpl) {
     App.module('Weekly.Edit.Views', {
+        initialize: function(options) {
+            var handlers = [
+                {
+                    selector: 'input.js-weekly-input-number',
+                    onGet: function(value, options) {
+                        if (value) return M.Format(value, ',', {decimal: 0});
+                        return '';
+                    },
+                    onSet: function(value, options) {
+                        return parseFloat(value.replace(/[^0-9\.]+/g, ''));
+                    }
+                }
+            ];
+            Backbone.Stickit.addHandler(handlers);
+        },
+
         define: function (Views, App, Backbone, Marionette, $, _) {
             //  Common Views
             //  ------------
@@ -101,6 +117,9 @@ define([
             //  --------
 
             Views.FormView = Marionette.ItemView.extend({
+                //  Initializer
+                //  -----------
+
                 initialize: function(options) {
                     options || (options = {});
                     this.templateHelpers || (this.templateHelpers = {});
@@ -112,22 +131,36 @@ define([
                     if (options.date) this.templateHelpers.date = options.date;
                 },
 
+
+
                 //  Configuration
+                //  -------------
+
                 template: FormTpl,
                 tagName: 'div',
                 className: 'col-sm-12',
 
-                //  UI
+                // UI
                 ui: {
                     back: 'button.js-back',
                     control: '#Week_Begin',
                     delete: 'button.js-delete',
                     message: '#form-message',
                     save: 'button.js-save',
-                    submit: 'button.js-submit'
+                    submit: 'button.js-submit',
+                    endingPit: '#ending-pit',
+                    totalInv: '#total-inv'
                 },
 
+
+
                 //  Events
+                //  -----------------------
+
+                events: {
+                    'keyup input.js-weekly-input-number': 'displayNumber'
+                },
+
                 triggers: {
                     'click @ui.back': 'back',
                     'click @ui.delete': 'delete',
@@ -136,30 +169,53 @@ define([
                 },
 
                 modelEvents: {
-                    'sync': 'render'
+                    'sync': 'render',
+                    'change:Beg_Pit_Inv': 'updateEndingPit updateTotal',
+                    'change:Tons_Uncovered': 'updateEndingPit updateTotal',
+                    'change:Tons_Produced': 'updateEndingPit updateTotal',
+                    'change:End_Stockpile_Inv': 'updateTotal'
                 },
 
-                changeDate: function() {
+
+
+                //  Handlers
+                //  --------
+
+                // Update the date model via the datepicker widget
+                changeDate: function(e) {
                     if (this.model) this.model.set('Week_Begin', this.ui.control.datepicker('getDate'));
                 },
 
-                onShowError: function(msg) {
-                    msg = '<strong>Error!</strong> ' + msg;
-                    this._showMessage(msg, 'alert alert-danger');
+                // Format entered number as text
+                displayNumber: function(e) {
+                    var val = $(e.target).val().replace(/[^0-9\.]+/g, ''),
+                        regex = /^-?$/g;
+                    if (!(regex.test(val))) {
+                        $(e.target).val(M.Format(parseFloat(val), ',', {decimal: 0}));
+                    }
                 },
 
-                onShowSuccess: function(msg) {
-                    msg = '<strong>Success!</strong> ' + msg;
-                    this._showMessage(msg, 'alert alert-success');
+                // Recalculate ending pit inventory
+                updateEndingPit: function(e) {
+                    var entry = this.model,
+                        val = (entry.get('Beg_Pit_Inv') || 0) + (entry.get('Tons_Uncovered') || 0)
+                            - (entry.get('Tons_Produced') || 0);
+                    this.ui.endingPit.val(M.Format(val, ',', {decimal: 0}));
                 },
 
-                _showMessage: function(msg, classes) {
-                    this.ui.message.removeClass();
-                    this.ui.message.addClass(classes);
-                    this.ui.message.html(msg);
+                // Recalculate total inventory
+                updateTotal: function(e) {
+                    var entry = this.model,
+                        val = (entry.get('Beg_Pit_Inv') || 0) + (entry.get('Tons_Uncovered') || 0)
+                            - (entry.get('Tons_Produced') || 0) + (entry.get('End_Stockpile_Inv') || 0);
+                    this.ui.totalInv.val(M.Format(val, ',', {decimal: 0}));
                 },
+
+
 
                 //  Bindings
+                //  --------
+
                 bindings: {
                     // Meta
                     '#Operation': {
@@ -174,61 +230,56 @@ define([
                     },
 
                     // Safety
-                    '#MSHA_Weekly_Hourly': {observe: 'MSHA_Weekly_Hourly', onGet: 'numToText', onSet: 'textToNum'},
-                    '#MSHA_Weekly_Salaried': {observe: 'MSHA_Weekly_Salaried', onGet: 'numToText', onSet: 'textToNum'},
-                    '#MSHA_Weekly_Contractor': {observe: 'MSHA_Weekly_Contractor', onGet: 'numToText', onSet: 'textToNum'},
-                    '#MSHA_YTD_Hourly': {observe: 'MSHA_YTD_Hourly', onGet: 'numToText', onSet: 'textToNum'},
-                    '#MSHA_YTD_Salaried': {observe: 'MSHA_YTD_Salaried', onGet: 'numToText', onSet: 'textToNum'},
-                    '#MSHA_YTD_Contractor': {observe: 'MSHA_YTD_Contractor', onGet: 'numToText', onSet: 'textToNum'},
-                    '#LTI_YTD_Hourly': {observe: 'LTI_YTD_Hourly', onGet: 'numToText', onSet: 'textToNum'},
-                    '#LTI_YTD_Salaried': {observe: 'LTI_YTD_Salaried', onGet: 'numToText', onSet: 'textToNum'},
-                    '#LTI_YTD_Contractor': {observe: 'LTI_YTD_Contractor', onGet: 'numToText', onSet: 'textToNum'},
-                    '#MSHA_Days_Since_Last': {observe: 'MSHA_Days_Since_Last', onGet: 'numToText', onSet: 'textToNum'},
-                    '#LTI_Days_Since_Last': {observe: 'LTI_Days_Since_Last', onGet: 'numToText', onSet: 'textToNum'},
-                    '#Safety_Comments': {observe: 'Safety_Comments'},
+                    '#MSHA_Weekly_Hourly': 'MSHA_Weekly_Hourly',
+                    '#MSHA_Weekly_Salaried': 'MSHA_Weekly_Salaried',
+                    '#MSHA_Weekly_Contractor': 'MSHA_Weekly_Contractor',
+                    '#MSHA_YTD_Hourly': 'MSHA_YTD_Hourly',
+                    '#MSHA_YTD_Salaried': 'MSHA_YTD_Salaried',
+                    '#MSHA_YTD_Contractor': 'MSHA_YTD_Contractor',
+                    '#LTI_YTD_Hourly': 'LTI_YTD_Hourly',
+                    '#LTI_YTD_Salaried': 'LTI_YTD_Salaried',
+                    '#LTI_YTD_Contractor': 'LTI_YTD_Contractor',
+                    '#MSHA_Days_Since_Last': 'MSHA_Days_Since_Last',
+                    '#LTI_Days_Since_Last': 'LTI_Days_Since_Last',
+                    '#Safety_Comments': 'Safety_Comments',
 
                     // Sales
-                    '#Sales_Weekly_Actual': {observe: 'Sales_Weekly_Actual', onGet: 'numToText', onSet: 'textToNum'},
-                    '#Sales_Weekly_Forecast': {observe: 'Sales_Weekly_Forecast', onGet: 'numToText', onSet: 'textToNum'},
-                    '#Sales_Weekly_Budget': {observe: 'Sales_Weekly_Budget', onGet: 'numToText', onSet: 'textToNum'},
-                    '#Sales_Monthly_Actual': {observe: 'Sales_Monthly_Actual', onGet: 'numToText', onSet: 'textToNum'},
-                    '#Sales_Monthly_Forecast': {observe: 'Sales_Monthly_Forecast', onGet: 'numToText', onSet: 'textToNum'},
-                    '#Sales_Monthly_Budget': {observe: 'Sales_Monthly_Budget', onGet: 'numToText', onSet: 'textToNum'},
-                    '#Sales_YTD_Actual': {observe: 'Sales_YTD_Actual', onGet: 'numToText', onSet: 'textToNum'},
-                    '#Sales_YTD_Forecast': {observe: 'Sales_YTD_Forecast', onGet: 'numToText', onSet: 'textToNum'},
-                    '#Sales_YTD_Budget': {observe: 'Sales_YTD_Budget', onGet: 'numToText', onSet: 'textToNum'},
-                    '#Customer_Comments': {observe: 'Customer_Comments'},
+                    '#Sales_Weekly_Actual': 'Sales_Weekly_Actual',
+                    '#Sales_Weekly_Forecast': 'Sales_Weekly_Forecast',
+                    '#Sales_Weekly_Budget': 'Sales_Weekly_Budget',
+                    '#Sales_Monthly_Actual': 'Sales_Monthly_Actual',
+                    '#Sales_Monthly_Forecast': 'Sales_Monthly_Forecast',
+                    '#Sales_Monthly_Budget': 'Sales_Monthly_Budget',
+                    '#Sales_YTD_Actual': 'Sales_YTD_Actual',
+                    '#Sales_YTD_Forecast': 'Sales_YTD_Forecast',
+                    '#Sales_YTD_Budget': 'Sales_YTD_Budget',
+                    '#Customer_Comments': 'Customer_Comments',
 
                     // Production
-                    '#Draglines_Weekly_Actual': {observe: 'Draglines_Weekly_Actual', onGet: 'numToText', onSet: 'textToNum'},
-                    '#Draglines_Weekly_Forecast': {observe: 'Draglines_Weekly_Forecast', onGet: 'numToText', onSet: 'textToNum'},
-                    '#Draglines_Monthly_Actual': {observe: 'Draglines_Monthly_Actual', onGet: 'numToText', onSet: 'textToNum'},
-                    '#Draglines_Monthly_Forecast': {observe: 'Draglines_Monthly_Forecast', onGet: 'numToText', onSet: 'textToNum'},
-                    '#Mobile_Weekly_Actual': {observe: 'Mobile_Weekly_Actual', onGet: 'numToText', onSet: 'textToNum'},
-                    '#Mobile_Weekly_Forecast': {observe: 'Mobile_Weekly_Forecast', onGet: 'numToText', onSet: 'textToNum'},
-                    '#Mobile_Monthly_Actual': {observe: 'Mobile_Monthly_Actual', onGet: 'numToText', onSet: 'textToNum'},
-                    '#Mobile_Monthly_Forecast': {observe: 'Mobile_Monthly_Forecast', onGet: 'numToText', onSet: 'textToNum'},
-                    '#Production_Comments': {observe: 'Production_Comments'},
+                    '#Draglines_Weekly_Actual': 'Draglines_Weekly_Actual',
+                    '#Draglines_Weekly_Forecast': 'Draglines_Weekly_Forecast',
+                    '#Draglines_Monthly_Actual': 'Draglines_Monthly_Actual',
+                    '#Draglines_Monthly_Forecast': 'Draglines_Monthly_Forecast',
+                    '#Mobile_Weekly_Actual': 'Mobile_Weekly_Actual',
+                    '#Mobile_Weekly_Forecast': 'Mobile_Weekly_Forecast',
+                    '#Mobile_Monthly_Actual': 'Mobile_Monthly_Actual',
+                    '#Mobile_Monthly_Forecast': 'Mobile_Monthly_Forecast',
+                    '#Production_Comments': 'Production_Comments',
 
                     // Inventory
-                    '#Beg_Pit_Inv': {observe: 'Beg_Pit_Inv', onGet: 'numToText', onSet: 'textToNum'},
-                    '#Tons_Uncovered': {observe: 'Tons_Uncovered', onGet: 'numToText', onSet: 'textToNum'},
-                    '#Tons_Produced': {observe: 'Tons_Produced', onGet: 'numToText', onSet: 'textToNum'},
-                    '#Beg_Stockpile_Inv': {observe: 'Beg_Stockpile_Inv', onGet: 'numToText', onSet: 'textToNum'},
-                    '#End_Stockpile_Inv': {observe: 'End_Stockpile_Inv', onGet: 'numToText', onSet: 'textToNum'},
-                    '#Operations_Comments': {observe: 'Operations_Comments'}
+                    '#Beg_Pit_Inv': 'Beg_Pit_Inv',
+                    '#Tons_Uncovered': 'Tons_Uncovered',
+                    '#Tons_Produced': 'Tons_Produced',
+                    '#Beg_Stockpile_Inv': 'Beg_Stockpile_Inv',
+                    '#End_Stockpile_Inv': 'End_Stockpile_Inv',
+                    '#Operations_Comments': 'Operations_Comments'
                 },
 
-                //  Formatters
-                textToNum: function(val, options) {
-                    return parseFloat(val.replace(/[^0-9\.]+/g, ''));
-                },
 
-                numToText: function(val, options) {
-                    return M.Format(val, ',', {decimal: 0})
-                },
 
                 //  Internal Methods
+                //  ----------------
+
                 render: function() {
                     Marionette.ItemView.prototype.render.call(this);
                     if (this.model) this.stickit();
@@ -256,6 +307,10 @@ define([
                     this.ui.control.datepicker().on('changeDate', $.proxy(function() {
                         this.changeDate();
                     }, this));
+
+                    // Perform initial inventory calculations
+                    this.updateEndingPit();
+                    this.updateTotal();
                 },
 
                 onDestroy: function() {

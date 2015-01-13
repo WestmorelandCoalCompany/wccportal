@@ -33,7 +33,7 @@
                 <div class="form-group">
                     <label class="control-label" for="Week_Begin">Week Of</label>
                     <div>
-                        <input type="text" class="form-control text-center" name="Week_Begin" id="Week_Begin">
+                        <input type="text" class="form-control" name="Week_Begin" id="Week_Begin">
                     </div>
                 </div>
             </div>
@@ -65,10 +65,12 @@
                             <a href="#sales-form" aria-controls="sales-form" role="tab" data-toggle="tab">Sales</a>
                         </li>
                         <li role="presentation">
-                            <a href="#production-form" aria-controls="production-form" role="tab" data-toggle="tab">Production</a>
+                            <a href="#production-form" aria-controls="production-form" role="tab"
+                               data-toggle="tab">Production</a>
                         </li>
                         <li role="presentation">
-                            <a href="#inventory-form" aria-controls="inventory-form" role="tab" data-toggle="tab">Inventory</a>
+                            <a href="#inventory-form" aria-controls="inventory-form" role="tab"
+                               data-toggle="tab">Inventory</a>
                         </li>
                     </ul>
                 </div>
@@ -95,13 +97,19 @@
                                     <div class="row form-group">
                                         <label class="col-sm-3 control-label">Hourly</label>
                                         <div class="col-sm-3">
-                                            <input type="text" class="form-control text-center" name="MSHA_Weekly_Hourly" id="MSHA_Weekly_Hourly" value="{{MSHA_Weekly_Hourly}}">
+                                            <input type="text" class="form-control text-center js-weekly-input-number"
+                                                   name="MSHA_Weekly_Hourly" id="MSHA_Weekly_Hourly"
+                                                   value="{{MSHA_Weekly_Hourly}}" placeholder="0">
                                         </div>
                                         <div class="col-sm-3">
-                                            <input type="text" class="form-control text-center" name="MSHA_YTD_Hourly" id="MSHA_YTD_Hourly" value="{{MSHA_YTD_Hourly}}">
+                                            <input type="text" class="form-control text-center js-weekly-input-number"
+                                                   name="MSHA_YTD_Hourly" id="MSHA_YTD_Hourly"
+                                                   value="{{MSHA_YTD_Hourly}}" placeholder="0">
                                         </div>
                                         <div class="col-sm-3">
-                                            <input type="text" class="form-control text-center" name="LTI_YTD_Hourly" id="LTI_YTD_Hourly" value="{{LTI_YTD_Hourly}}">
+                                            <input type="text" class="form-control text-center js-weekly-input-number"
+                                                   name="LTI_YTD_Hourly" id="LTI_YTD_Hourly" value="{{LTI_YTD_Hourly}}"
+                                                   placeholder="0">
                                         </div>
                                     </div>
 
@@ -109,13 +117,19 @@
                                     <div class="row form-group">
                                         <label class="col-sm-3 control-label">Salaried</label>
                                         <div class="col-sm-3">
-                                            <input type="text" class="form-control text-center" name="MSHA_Weekly_Salaried" id="MSHA_Weekly_Salaried" value="{{MSHA_Weekly_Salaried}}">
+                                            <input type="text" class="form-control text-center js-weekly-input-number"
+                                                   name="MSHA_Weekly_Salaried" id="MSHA_Weekly_Salaried"
+                                                   value="{{MSHA_Weekly_Salaried}}" placeholder="0">
                                         </div>
                                         <div class="col-sm-3">
-                                            <input type="text" class="form-control text-center" name="MSHA_YTD_Salaried" id="MSHA_YTD_Salaried" value="{{MSHA_YTD_Salaried}}">
+                                            <input type="text" class="form-control text-center js-weekly-input-number"
+                                                   name="MSHA_YTD_Salaried" id="MSHA_YTD_Salaried"
+                                                   value="{{MSHA_YTD_Salaried}}" placeholder="0">
                                         </div>
                                         <div class="col-sm-3">
-                                            <input type="text" class="form-control text-center" name="LTI_YTD_Salaried" id="LTI_YTD_Salaried" value="{{LTI_YTD_Salaried}}">
+                                            <input type="text" class="form-control text-center js-weekly-input-number"
+                                                   name="LTI_YTD_Salaried" id="LTI_YTD_Salaried"
+                                                   value="{{LTI_YTD_Salaried}}" placeholder="0">
                                         </div>
                                     </div>
 
@@ -123,13 +137,19 @@
                                     <div class="row form-group">
                                         <label class="col-sm-3 control-label">Contractor</label>
                                         <div class="col-sm-3">
-                                            <input type="text" class="form-control text-center" name="MSHA_Weekly_Contractor" id="MSHA_Weekly_Contractor" value="{{MSHA_Weekly_Contractor}}">
+                                            <input type="text" class="form-control text-center js-weekly-input-number"
+                                                   name="MSHA_Weekly_Contractor" id="MSHA_Weekly_Contractor"
+                                                   value="{{MSHA_Weekly_Contractor}}" placeholder="0">
                                         </div>
                                         <div class="col-sm-3">
-                                            <input type="text" class="form-control text-center" name="MSHA_YTD_Contractor" id="MSHA_YTD_Contractor" value="{{MSHA_YTD_Contractor}}">
+                                            <input type="text" class="form-control text-center js-weekly-input-number"
+                                                   name="MSHA_YTD_Contractor" id="MSHA_YTD_Contractor"
+                                                   value="{{MSHA_YTD_Contractor}}" placeholder="0">
                                         </div>
                                         <div class="col-sm-3">
-                                            <input type="text" class="form-control text-center" name="LTI_YTD_Contractor" id="LTI_YTD_Contractor" value="{{LTI_YTD_Contractor}}">
+                                            <input type="text" class="form-control text-center js-weekly-input-number"
+                                                   name="LTI_YTD_Contractor" id="LTI_YTD_Contractor"
+                                                   value="{{LTI_YTD_Contractor}}" placeholder="0">
                                         </div>
                                     </div>
 
@@ -137,23 +157,28 @@
                                     <div class="row form-group">
                                         <label class="col-sm-3 control-label">Days Since Last</label>
                                         <div class="col-sm-offset-3 col-sm-3">
-                                            <input type="text" class="form-control text-center" name="MSHA_Days_Since_Last" id="MSHA_Days_Since_Last" value="{{MSHA_Days_Since_Last}}">
+                                            <input type="text" class="form-control text-center js-weekly-input-number"
+                                                   name="MSHA_Days_Since_Last" id="MSHA_Days_Since_Last"
+                                                   value="{{MSHA_Days_Since_Last}}" placeholder="0">
                                         </div>
                                         <div class="col-sm-3">
-                                            <input type="text" class="form-control text-center" name="LTI_Days_Since_Last" id="LTI_Days_Since_Last" value="{{LTI_Days_Since_Last}}">
+                                            <input type="text" class="form-control text-center js-weekly-input-number"
+                                                   name="LTI_Days_Since_Last" id="LTI_Days_Since_Last"
+                                                   value="{{LTI_Days_Since_Last}}" placeholder="0">
                                         </div>
                                     </div>
                                 </div>
 
                                 <!-- Right Side -->
-                                <div class="col-sm-12 col-xlg-5">
+                                <div class="col-sm-12 col-xlg-5" style="margin-top: 20px;">
                                     <!-- Safety Comments -->
                                     <div class="row form-group">
                                         <label class="col-sm-12">Safety Comments</label>
                                     </div>
                                     <div class="row form-group">
                                         <div class="col-sm-12">
-                                            <textarea rows="9" name="Safety_Comments" id="Safety_Comments" class="form-control">{{Safety_Comments}}</textarea>
+                                            <textarea rows="9" name="Safety_Comments" id="Safety_Comments"
+                                                      class="form-control">{{Safety_Comments}}</textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -176,13 +201,19 @@
                                     <div class="row form-group">
                                         <label class="col-sm-3 control-label">Week</label>
                                         <div class="col-sm-3">
-                                            <input type="text" class="form-control text-right" name="Sales_Weekly_Actual" id="Sales_Weekly_Actual" value="{{Sales_Weekly_Actual}}">
+                                            <input type="text" class="form-control text-right js-weekly-input-number"
+                                                   name="Sales_Weekly_Actual" id="Sales_Weekly_Actual"
+                                                   value="{{Sales_Weekly_Actual}}" placeholder="0">
                                         </div>
                                         <div class="col-sm-3">
-                                            <input type="text" class="form-control text-right" name="Sales_Weekly_Forecast" id="Sales_Weekly_Forecast" value="{{Sales_Weekly_Forecast}}">
+                                            <input type="text" class="form-control text-right js-weekly-input-number"
+                                                   name="Sales_Weekly_Forecast" id="Sales_Weekly_Forecast"
+                                                   value="{{Sales_Weekly_Forecast}}" placeholder="0">
                                         </div>
                                         <div class="col-sm-3">
-                                            <input type="text" class="form-control text-right" name="Sales_Weekly_Budget" id="Sales_Weekly_Budget" value="{{Sales_Weekly_Budget}}">
+                                            <input type="text" class="form-control text-right js-weekly-input-number"
+                                                   name="Sales_Weekly_Budget" id="Sales_Weekly_Budget"
+                                                   value="{{Sales_Weekly_Budget}}" placeholder="0">
                                         </div>
                                     </div>
 
@@ -190,13 +221,19 @@
                                     <div class="row form-group">
                                         <label class="col-sm-3 control-label">Month</label>
                                         <div class="col-sm-3">
-                                            <input type="text" class="form-control text-right" name="Sales_Monthly_Actual" id="Sales_Monthly_Actual" value="{{Sales_Monthly_Actual}}">
+                                            <input type="text" class="form-control text-right js-weekly-input-number"
+                                                   name="Sales_Monthly_Actual" id="Sales_Monthly_Actual"
+                                                   value="{{Sales_Monthly_Actual}}" placeholder="0">
                                         </div>
                                         <div class="col-sm-3">
-                                            <input type="text" class="form-control text-right" name="Sales_Monthly_Forecast" id="Sales_Monthly_Forecast" value="{{Sales_Monthly_Forecast}}">
+                                            <input type="text" class="form-control text-right js-weekly-input-number"
+                                                   name="Sales_Monthly_Forecast" id="Sales_Monthly_Forecast"
+                                                   value="{{Sales_Monthly_Forecast}}" placeholder="0">
                                         </div>
                                         <div class="col-sm-3">
-                                            <input type="text" class="form-control text-right" name="Sales_Monthly_Budget" id="Sales_Monthly_Budget" value="{{Sales_Monthly_Budget}}">
+                                            <input type="text" class="form-control text-right js-weekly-input-number"
+                                                   name="Sales_Monthly_Budget" id="Sales_Monthly_Budget"
+                                                   value="{{Sales_Monthly_Budget}}" placeholder="0">
                                         </div>
                                     </div>
 
@@ -204,26 +241,33 @@
                                     <div class="row form-group">
                                         <label class="col-sm-3 control-label">Year to Date</label>
                                         <div class="col-sm-3">
-                                            <input type="text" class="form-control text-right" name="Sales_YTD_Actual" id="Sales_YTD_Actual" value="{{Sales_YTD_Actual}}">
+                                            <input type="text" class="form-control text-right js-weekly-input-number"
+                                                   name="Sales_YTD_Actual" id="Sales_YTD_Actual"
+                                                   value="{{Sales_YTD_Actual}}" placeholder="0">
                                         </div>
                                         <div class="col-sm-3">
-                                            <input type="text" class="form-control text-right" name="Sales_YTD_Forecast" id="Sales_YTD_Forecast" value="{{Sales_YTD_Forecast}}">
+                                            <input type="text" class="form-control text-right js-weekly-input-number"
+                                                   name="Sales_YTD_Forecast" id="Sales_YTD_Forecast"
+                                                   value="{{Sales_YTD_Forecast}}" placeholder="0">
                                         </div>
                                         <div class="col-sm-3">
-                                            <input type="text" class="form-control text-right" name="Sales_YTD_Budget" id="Sales_YTD_Budget" value="{{Sales_YTD_Budget}}">
+                                            <input type="text" class="form-control text-right js-weekly-input-number"
+                                                   name="Sales_YTD_Budget" id="Sales_YTD_Budget"
+                                                   value="{{Sales_YTD_Budget}}" placeholder="0">
                                         </div>
                                     </div>
                                 </div>
 
                                 <!-- Right Side -->
-                                <div class="col-sm-12 col-xlg-5">
+                                <div class="col-sm-12 col-xlg-5" style="margin-top: 20px;">
                                     <!-- Safety Comments -->
                                     <div class="row form-group">
                                         <label class="col-sm-12">Customer Comments</label>
                                     </div>
                                     <div class="row form-group">
                                         <div class="col-sm-12">
-                                            <textarea rows="9" name="Customer_Comments" id="Customer_Comments" class="form-control">{{Customer_Comments}}</textarea>
+                                            <textarea rows="9" name="Customer_Comments" id="Customer_Comments"
+                                                      class="form-control">{{Customer_Comments}}</textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -252,16 +296,28 @@
                                     <div class="row form-group">
                                         <label class="col-sm-4 control-label">Draglines/Shovels</label>
                                         <div class="col-sm-2">
-                                            <input type="text" id="Draglines_Weekly_Actual" name="Draglines_Weekly_Actual" class="form-control text-right" value="{{Draglines_Weekly_Actual}}">
+                                            <input type="text" id="Draglines_Weekly_Actual"
+                                                   name="Draglines_Weekly_Actual"
+                                                   class="form-control text-right js-weekly-input-number"
+                                                   value="{{Draglines_Weekly_Actual}}" placeholder="0">
                                         </div>
                                         <div class="col-sm-2">
-                                            <input type="text" id="Draglines_Weekly_Forecast" name="Draglines_Weekly_Forecast" class="form-control text-right" value="{{Draglines_Weekly_Forecast}}">
+                                            <input type="text" id="Draglines_Weekly_Forecast"
+                                                   name="Draglines_Weekly_Forecast"
+                                                   class="form-control text-right js-weekly-input-number"
+                                                   value="{{Draglines_Weekly_Forecast}}" placeholder="0">
                                         </div>
                                         <div class="col-sm-2">
-                                            <input type="text" id="Draglines_Monthly_Actual" name="Draglines_Monthly_Actual" class="form-control text-right" value="{{Draglines_Monthly_Actual}}">
+                                            <input type="text" id="Draglines_Monthly_Actual"
+                                                   name="Draglines_Monthly_Actual"
+                                                   class="form-control text-right js-weekly-input-number"
+                                                   value="{{Draglines_Monthly_Actual}}" placeholder="0">
                                         </div>
                                         <div class="col-sm-2">
-                                            <input type="text" id="Draglines_Monthly_Forecast" name="Draglines_Monthly_Forecast" class="form-control text-right" value="{{Draglines_Monthly_Forecast}}">
+                                            <input type="text" id="Draglines_Monthly_Forecast"
+                                                   name="Draglines_Monthly_Forecast"
+                                                   class="form-control text-right js-weekly-input-number"
+                                                   value="{{Draglines_Monthly_Forecast}}" placeholder="0">
                                         </div>
                                     </div>
 
@@ -269,28 +325,37 @@
                                     <div class="row form-group">
                                         <label class="col-sm-4 control-label">Mobile/Other</label>
                                         <div class="col-sm-2">
-                                            <input type="text" id="Mobile_Weekly_Actual" name="Mobile_Weekly_Actual" class="form-control text-right" value="{{Mobile_Weekly_Actual}}">
+                                            <input type="text" id="Mobile_Weekly_Actual" name="Mobile_Weekly_Actual"
+                                                   class="form-control text-right js-weekly-input-number"
+                                                   value="{{Mobile_Weekly_Actual}}" placeholder="0">
                                         </div>
                                         <div class="col-sm-2">
-                                            <input type="text" id="Mobile_Weekly_Forecast" name="Mobile_Weekly_Forecast" class="form-control text-right" value="{{Mobile_Weekly_Forecast}}">
+                                            <input type="text" id="Mobile_Weekly_Forecast" name="Mobile_Weekly_Forecast"
+                                                   class="form-control text-right js-weekly-input-number"
+                                                   value="{{Mobile_Weekly_Forecast}}" placeholder="0">
                                         </div>
                                         <div class="col-sm-2">
-                                            <input type="text" id="Mobile_Monthly_Actual" name="Mobile_Monthly_Actual" class="form-control text-right" value="{{Mobile_Monthly_Actual}}">
+                                            <input type="text" id="Mobile_Monthly_Actual" name="Mobile_Monthly_Actual"
+                                                   class="form-control text-right js-weekly-input-number"
+                                                   value="{{Mobile_Monthly_Actual}}" placeholder="0">
                                         </div>
                                         <div class="col-sm-2">
-                                            <input type="text" id="Mobile_Monthly_Forecast" name="Mobile_Monthly_Forecast" class="form-control text-right" value="{{Mobile_Monthly_Forecast}}">
+                                            <input type="text" id="Mobile_Monthly_Forecast" name="Mobile_Monthly_Forecast"
+                                                   class="form-control text-right js-weekly-input-number"
+                                                   value="{{Mobile_Monthly_Forecast}}" placeholder="0">
                                         </div>
                                     </div>
                                 </div>
                                 <!-- Right Side -->
-                                <div class="col-sm-12 col-xlg-5">
+                                <div class="col-sm-12 col-xlg-5" style="margin-top: 20px;">
                                     <!-- Production Comments -->
                                     <div class="row form-group">
                                         <label class="col-sm-12">Production Comments</label>
                                     </div>
                                     <div class="row form-group">
                                         <div class="col-sm-12">
-                                            <textarea rows="9" name="Production_Comments" id="Production_Comments" class="form-control">{{Production_Comments}}</textarea>
+                                            <textarea rows="9" name="Production_Comments" id="Production_Comments"
+                                                      class="form-control">{{Production_Comments}}</textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -308,43 +373,60 @@
                                             <div class="row form-group">
                                                 <label class="col-sm-7 control-label">Beginning Pit Inv.</label>
                                                 <div class="col-sm-5">
-                                                    <input type="text" class="form-control text-right" name="Beg_Pit_Inv" id="Beg_Pit_Inv" value="{{Beg_Pit_Inv}}">
+                                                    <input type="text"
+                                                           class="form-control text-right js-weekly-input-number"
+                                                           name="Beg_Pit_Inv" id="Beg_Pit_Inv" value="{{Beg_Pit_Inv}}"
+                                                           placeholder="0">
                                                 </div>
                                             </div>
                                             <div class="row form-group">
                                                 <label class="col-sm-7 control-label">Tons Uncovered</label>
                                                 <div class="col-sm-5">
-                                                    <input type="text" class="form-control text-right" name="Tons_Uncovered" id="Tons_Uncovered" value="{{Tons_Uncovered}}">
+                                                    <input type="text"
+                                                           class="form-control text-right js-weekly-input-number"
+                                                           name="Tons_Uncovered" id="Tons_Uncovered"
+                                                           value="{{Tons_Uncovered}}" placeholder="0">
                                                 </div>
                                             </div>
                                             <div class="row form-group">
                                                 <label class="col-sm-7 control-label">Tons Mined</label>
                                                 <div class="col-sm-5">
-                                                    <input type="text" class="form-control text-right" name="Tons_Produced" id="Tons_Produced" value="{{Tons_Produced}}">
+                                                    <input type="text"
+                                                           class="form-control text-right js-weekly-input-number"
+                                                           name="Tons_Produced" id="Tons_Produced"
+                                                           value="{{Tons_Produced}}" placeholder="0">
                                                 </div>
                                             </div>
                                             <div class="row form-group">
                                                 <label class="col-sm-7 control-label">Ending Pit Inv.</label>
                                                 <div class="col-sm-5">
-                                                    <input class="form-control text-right" id="ending-pit" type="text" disabled>
+                                                    <input class="form-control text-right js-weekly-input-number"
+                                                           id="ending-pit" type="text" placeholder="0" disabled>
                                                 </div>
                                             </div>
                                             <div class="row form-group">
                                                 <label class="col-sm-7 control-label">Beginning Stockpile Inv.</label>
                                                 <div class="col-sm-5">
-                                                    <input type="text" class="form-control text-right" name="Beg_Stockpile_Inv" id="Beg_Stockpile_Inv" value="{{Beg_Stockpile_Inv}}">
+                                                    <input type="text"
+                                                           class="form-control text-right js-weekly-input-number"
+                                                           name="Beg_Stockpile_Inv" id="Beg_Stockpile_Inv"
+                                                           value="{{Beg_Stockpile_Inv}}" placeholder="0">
                                                 </div>
                                             </div>
                                             <div class="row form-group">
                                                 <label class="col-sm-7 control-label">Ending Stockpile Inv.</label>
                                                 <div class="col-sm-5">
-                                                    <input type="text" class="form-control text-right" name="End_Stockpile_Inv" id="End_Stockpile_Inv" value="{{End_Stockpile_Inv}}">
+                                                    <input type="text"
+                                                           class="form-control text-right js-weekly-input-number"
+                                                           name="End_Stockpile_Inv" id="End_Stockpile_Inv"
+                                                           value="{{End_Stockpile_Inv}}" placeholder="0">
                                                 </div>
                                             </div>
                                             <div class="row form-group">
                                                 <label class="col-sm-7 control-label">Total Inv.</label>
                                                 <div class="col-sm-5">
-                                                    <input class="form-control text-right" id="total-inv" type="text" disabled>
+                                                    <input class="form-control text-right js-weekly-input-number"
+                                                           id="total-inv" type="text" placeholder="0" disabled>
                                                 </div>
                                             </div>
                                         </div>
@@ -352,14 +434,15 @@
                                 </div>
 
                                 <!-- Right Side -->
-                                <div class="col-sm-12 col-xlg-5">
+                                <div class="col-sm-12 col-xlg-5" style="margin-top: 20px;">
                                     <!-- Safety Comments -->
                                     <div class="row form-group">
                                         <label class="col-sm-12">Customer Comments</label>
                                     </div>
                                     <div class="row form-group">
                                         <div class="col-sm-12">
-                                            <textarea rows="9" name="Operations_Comments" id="Operations_Comments" class="form-control">{{Operations_Comments}}</textarea>
+                                            <textarea rows="9" name="Operations_Comments" id="Operations_Comments"
+                                                      class="form-control">{{Operations_Comments}}</textarea>
                                         </div>
                                     </div>
                                 </div>
