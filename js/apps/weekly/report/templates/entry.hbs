@@ -1,0 +1,192 @@
+{{!
+    {
+        "name": "entry",
+        "desc": "report view for a single entry",
+        "styles": ["apps/weekly/report/templates/layout"]
+    }
+}}
+<!-- Safety -->
+<div class="row">
+    <div class="col-sm-12 page-header">
+        <h4>Safety</h4>
+    </div>
+    <div class="col-md-6">
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>Labor Category</th>
+                <th class="text-center">Weekly Incidents</th>
+                <th class="text-center">MSHA YTD Reportables</th>
+                <th class="text-center">LTA YTD</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th class="active">Hourly</th>
+                <td class="text-center" id="msha-weekly-hourly">{{MSHA_Weekly_Hourly}}</td>
+                <td class="text-center" id="msha-ytd-hourly">{{MSHA_YTD_Hourly}}</td>
+                <td class="text-center" id="lti-ytd-hourly">{{LTI_YTD_Hourly}}</td>
+            </tr>
+            <tr>
+                <th class="active">Salaried</th>
+                <td class="text-center" id="msha-weekly-salaried">{{MSHA_Weekly_Salaried}}</td>
+                <td class="text-center" id="msha-ytd-salaried">{{MSHA_YTD_Salaried}}</td>
+                <td class="text-center" id="lti-ytd-salaried">{{LTI_YTD_Salaried}}</td>
+            </tr>
+            <tr>
+                <th class="active">Contractor</th>
+                <td class="text-center" id="msha-weekly-contractor">{{MSHA_Weekly_Contractor}}</td>
+                <td class="text-center" id="msha-ytd-contractor">{{MSHA_YTD_Contractor}}</td>
+                <td class="text-center" id="lti-ytd-contractor">{{LTI_YTD_Contractor}}</td>
+            </tr>
+            <tr>
+                <th class="active">Days Since Last Incident</th>
+                <th></th>
+                <td class="text-center" id="dsl-msha">{{MSHA_Days_Since_Last}}</td>
+                <td class="text-center" id="dsl-lti">{{LTI_Days_Since_Last}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-md-6">
+        <p><strong>Safety Comments</strong></p>
+        <p id="safety-comments">{{Safety_Comments}}</p>
+    </div>
+</div>
+
+<!-- Sales -->
+<div class="row">
+    <div class="col-sm-12 page-header">
+        <h4>Sales</h4>
+    </div>
+    <div class="col-md-6">
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>Period</th>
+                <th class="text-center">Actual</th>
+                <th class="text-center">Forecast</th>
+                <th class="text-center">Budget</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th class="active">Week</th>
+                <td class="text-right" id="sales-weekly-actual">{{Sales_Weekly_Actual}}</td>
+                <td class="text-right" id="sales-weekly-forecast">{{Sales_Weekly_Forecast}}</td>
+                <td class="text-right" id="sales-weekly-budget">{{Sales_Weekly_Budget}}</td>
+            </tr>
+            <tr>
+                <th class="active">Month</th>
+                <td class="text-right" id="sales-monthly-actual">{{Sales_Monthly_Actual}}</td>
+                <td class="text-right" id="sales-monthly-forecast">{{Sales_Monthly_Forecast}}</td>
+                <td class="text-right" id="sales-monthly-budget">{{Sales_Monthly_Budget}}</td>
+            </tr>
+            <tr>
+                <th class="active">Year to Date</th>
+                <td class="text-right" id="sales-ytd-actual">{{Sales_YTD_Actual}}</td>
+                <td class="text-right" id="sales-ytd-forecast">{{Sales_YTD_Forecast}}</td>
+                <td class="text-right" id="sales-ytd-budget">{{Sales_YTD_Budget}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-md-6">
+        <p><strong>Customer Comments</strong></p>
+        <p id="customer-comments">{{Customer_Comments}}</p>
+    </div>
+</div>
+
+<!-- Safety -->
+<div class="row">
+    <div class="col-sm-12 page-header">
+        <h4>Production</h4>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <table class="table table-hover" id="weekly-production-table">
+            <thead>
+            <tr>
+                <th style="border-bottom-style: none;"></th>
+                <th colspan="2" class="text-center">Weekly</th>
+                <th colspan="2" class="text-center">Monthly</th>
+            </tr>
+            <tr>
+                <th style="border-top-style: none;">Yard Category</th>
+                <th class="text-center">Actual</th>
+                <th class="text-center">Forecast</th>
+                <th class="text-center">Actual</th>
+                <th class="text-center">Forecast</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th class="active">Draglines/Shovel</th>
+                <td class="text-right" id="Draglines_Weekly_Actual">{{Draglines_Weekly_Actual}}</td>
+                <td class="text-right" id="Draglines_Weekly_Forecast">{{Draglines_Weekly_Forecast}}</td>
+                <td class="text-right" id="Draglines_Monthly_Actual">{{Draglines_Monthly_Actual}}</td>
+                <td class="text-right" id="Draglines_Monthly_Forecast">{{Draglines_Monthly_Forecast}}</td>
+            </tr>
+            <tr>
+                <th class="active">Mobile/Other</th>
+                <td class="text-right" id="Mobile_Weekly_Actual">{{Mobile_Weekly_Actual}}</td>
+                <td class="text-right" id="Mobile_Weekly_Forecast">{{Mobile_Weekly_Forecast}}</td>
+                <td class="text-right" id="Mobile_Monthly_Actual">{{Mobile_Monthly_Actual}}</td>
+                <td class="text-right" id="Mobile_Monthly_Forecast">{{Mobile_Monthly_Forecast}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-md-6">
+        <p><strong>Production Comments</strong></p>
+        <p id="production-comments">{{Production_Comments}}</p>
+    </div>
+</div>
+
+<!-- Inventory -->
+<div class="row">
+    <div class="col-sm-12 page-header">
+        <h4>Inventory</h4>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <table class="table table-hover">
+            <tbody>
+            <tr>
+                <th class="active">Beginning Pit Inv.</th>
+                <td class="text-right" id="beginning-pit">{{Beg_Pit_Inv}}</td>
+            </tr>
+            <tr>
+                <th class="active">Tons Uncovered</th>
+                <td class="text-right" id="tons-uncovered">{{Tons_Uncovered}}</td>
+            </tr>
+            <tr>
+                <th class="active">Tons Produced</th>
+                <td class="text-right" id="tons-produced">{{Tons_Produced}}</td>
+            </tr>
+            <tr>
+                <th class="active">Ending Pit Inv.</th>
+                <td class="text-right" id="ending-pit">{{endingPit}}</td>
+            </tr>
+            <tr>
+                <th class="active">Beginning Stockpile Inv.</th>
+                <td class="text-right" id="beginning-stockpile">{{Beg_Stockpile_Inv}}</td>
+            </tr>
+            <tr>
+                <th class="active">Ending Stockpile Inv.</th>
+                <td class="text-right" id="ending-stockpile">{{End_Stockpile_Inv}}</td>
+            </tr>
+            <tr>
+                <th class="active">Total Inv.</th>
+                <td class="text-right" id="total-inventory">{{totalInv}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-md-6">
+        <p><strong>Operations Comments</strong></p>
+        <p id="operations-comments">{{Operations_Comments}}</p>
+    </div>
+</div>

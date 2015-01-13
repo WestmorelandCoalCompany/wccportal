@@ -1,0 +1,575 @@
+/*
+    Bootstrap Includes
+*/
+
+// Core variables and mixins
+@import "bootstrap/variables";
+@import "bootstrap/mixins";
+
+// Reset and dependencies
+@import "bootstrap/normalize";
+@import "bootstrap/print";
+@import "bootstrap/glyphicons";
+
+// Core CSS
+@import "bootstrap/scaffolding";
+@import "bootstrap/type";
+@import "bootstrap/code";
+@import "bootstrap/grid";
+@import "bootstrap/tables";
+@import "bootstrap/forms";
+@import "bootstrap/buttons";
+
+// Components
+@import "bootstrap/component-animations";
+@import "bootstrap/dropdowns";
+@import "bootstrap/button-groups";
+@import "bootstrap/input-groups";
+@import "bootstrap/navs";
+@import "bootstrap/navbar";
+@import "bootstrap/breadcrumbs";
+@import "bootstrap/pagination";
+@import "bootstrap/pager";
+@import "bootstrap/labels";
+@import "bootstrap/badges";
+@import "bootstrap/jumbotron";
+@import "bootstrap/thumbnails";
+@import "bootstrap/alerts";
+@import "bootstrap/progress-bars";
+@import "bootstrap/media";
+@import "bootstrap/list-group";
+@import "bootstrap/panels";
+@import "bootstrap/responsive-embed";
+@import "bootstrap/wells";
+@import "bootstrap/close";
+
+// Components w/ JavaScript
+@import "bootstrap/modals";
+@import "bootstrap/tooltip";
+@import "bootstrap/popovers";
+@import "bootstrap/carousel";
+
+// Utility classes
+@import "bootstrap/utilities";
+@import "bootstrap/responsive-utilities";
+
+/*
+    Variables
+*/
+
+// Colors
+$dark1: #151515;
+$dark2: #000000;
+$dark3: #222222;
+$dark4: #090909;
+$light1: #777777;
+$light2: #dddddd;
+$ribbonHighlight: $dark1;
+$tabBorder: #8B8B8B;
+
+
+// submenu
+$submenu_bg: $dark4;
+$submenu_color: $light2;
+$submenu_a_color: $light1;
+$submenu_max_height: 340px;
+$submenu_top_padding: 15px;
+$submenu_left_padding: 15px;
+$submenu_mobile_top_padding: 10px;
+$submenu_mobile_left_padding: 10px;
+
+// Dimensions
+$body_top_padding: 5px;
+$body_left_padding: 25px;
+
+
+/*
+    Custom Styles
+*/
+
+
+#mobile {
+    display: block;
+    width: 0;
+    height: 0;
+    position: fixed;
+    top: -1000px;
+    @media(max-width:$screen-xs-max) {
+        display: none;
+    }
+}
+
+#s4-bodyContainer {
+    padding-top: $body_top_padding;
+    padding-right: $body_left_padding;
+    padding-bottom: $body_top_padding;
+    padding-left: $body_left_padding;
+
+    div.row {
+        margin-bottom: 5px;
+    }
+}
+
+#suiteBar {
+    position: absolute !important;
+    top: -30px !important;
+
+    #suiteBarLeft {
+        background-color:black !important;
+    }
+
+    #suiteBarRight {
+        background-color: $dark1 !important;
+
+        #DeltaSuiteBarRight {
+            position: absolute !important;
+            top: 35px !important;
+            z-index: 1000 !important;
+            right: 50px;
+        }
+    }
+
+    @media(max-width:$screen-xs-max) {
+        display: none !important;
+    }
+}
+
+.ms-siteactions-root > span > a.ms-core-menu-root {
+    width: auto !important;
+    height: auto !important;
+}
+
+#DeltaPageStatusBar {
+    display: none !important;
+}
+
+#s4-ribbonrow {
+	//display: none;
+    div.ms-cui-TabRowRight a.ms-promotedActionButton {
+        display: none !important;
+    }
+
+    @media(max-width:$screen-xs-max) {
+        display: none !important;
+    }
+}
+
+form[action*="/_layouts/"] #s4-ribbonrow,
+form[action*="/_layouts/"] #s4-ribbonrow {
+    display: inherit;
+}
+
+#globalNavBox {
+    background-color: $dark1;
+}
+
+
+span#ms-help {
+    display: none !important;
+}
+
+.ms-cui-topBar2 {
+    border-bottom: none !important;
+
+    li#LibraryContextualGroup {
+        border-color: transparent !important;
+    }
+}
+
+.ms-menu-althov-active, .ms-welcome-hover {
+    background-color: transparent !important;
+    border-color: $dark1 !important;
+
+    a {
+        color: #ffffff !important;
+        text-decoration: none !important;
+    }
+
+    span.ms-core-menu-arrow.ms-viewselector-arrow {
+        color: #ffffff !important;
+    }
+}
+
+a[id*="fullscreenmodeBtn"] {
+    -moz-box-sizing: content-box !important;
+    -webkit-box-sizing: content-box !important;
+    box-sizing: content-box !important;
+}
+
+a.ms-cui-tt-a {
+    background-color: transparent !important;
+    color: #ffffff !important;
+    text-decoration: none !important;
+    border-top-color: $ribbonHighlight !important;
+    border-left-color: $ribbonHighlight !important;
+    border-right-color: $ribbonHighlight !important;
+    cursor: pointer;
+}
+
+.ms-cui-cg-db .ms-cui-tt-s > .ms-cui-tt-a > .ms-cui-tt-span, .ms-cui-cg-db .ms-cui-tt > .ms-cui-tt-a:hover > .ms-cui-tt-span {
+    color: #ffffff !important;
+}
+
+li.ms-cui-cg {
+    border-top-color: $ribbonHighlight !important;
+    border-top-style: none !important;
+
+    
+}
+
+.ms-cui-cg-lb {
+    border-color: $ribbonHighlight !important;
+}
+
+.ms-cui-ct-ul {
+    border-color: $ribbonHighlight !important;
+
+    li {
+        padding-top: 4px !important;
+    }
+}
+
+.ms-cui-ct-first > .ms-cui-tt-a {
+    border-left-color: $ribbonHighlight !important;
+    background-color: transparent !important;
+    color: white;
+
+    &:hover {
+        border-left-color: $ribbonHighlight !important;
+        background-color: transparent !important;
+        color: white;
+
+        span {
+            color: #ffffff !important;
+        }
+    }
+}
+
+.ms-cui-ct-last > .ms-cui-tt-a {
+    border-right-color: $ribbonHighlight !important;
+    background-color: transparent !important;
+    color: white;
+
+    &:hover {
+        border-right-color: $ribbonHighlight !important;
+        background-color: transparent !important;
+        color: white;
+
+        span {
+            color: #ffffff !important;
+        }
+    }
+}
+
+.ms-cui-tabBody {
+    border-color: $dark1 !important;
+}
+
+a {
+    outline: none;
+}
+
+
+
+/*
+    Bootstrap Extensions    
+*/
+
+.label-as-badge {
+    border-radius: 1em;
+}
+
+#s4-workspace * {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+#s4-workspace div.container:first-child,
+#s4-workspace div.container-fluid:first-child {
+    padding-top: 15px;
+}
+
+#navContainer {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+
+    .navbar-inverse {
+        background: $dark1;
+        margin-bottom: 0 !important;
+
+        li.dropdown a {
+            span.caret {
+                opacity: 0;
+            }
+
+            &:hover {
+                span.caret {
+                    opacity: 1;
+                }
+            }
+        }
+
+        li.open a span.caret {
+            opacity: 1;
+        }
+
+        li#siteSearch {
+            padding-top: 9px;
+            padding-right: 15px;
+        }
+    }
+
+    #siteNav.navbar-static-top {
+        z-index: auto !important;
+    }
+
+    #siteNav.navbar-fixed-top {
+        top: 65px;
+    }
+
+    #subMenu {
+        background-color: $dark-darker;
+        position: absolute;
+        top: 86px;
+        left: 0;
+        right: 0;
+        z-index: 1001;
+        padding: 0;
+
+        &>.row {
+            margin-top: $submenu_top_padding;
+            margin-bottom: $submenu_top_padding;
+            margin-left: $submenu_left_padding;
+            margin-right: $submenu_left_padding;
+            display: none;
+        }
+
+        * {
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+
+        @media(max-width:$screen-xs-max) {
+            top: 51px;
+            background-color: $dark1;
+            max-height: $submenu_max_height;
+            padding-top: $submenu_top_padding;
+            padding-right: $submenu_left_padding;
+            padding-bottom: $submenu_top_padding;
+            padding-left: $submenu_left_padding;
+            overflow-y: scroll;
+        }
+
+        ul {
+            list-style-type: none;
+            color: $light2;
+            text-align: center;
+            padding: 0;
+
+            li {
+                padding-top: 0;
+                padding-bottom: 0;
+
+                a {
+                    &.active {
+                        background-color: $dark-darker;
+                        border-top-color: $tabBorder;
+                        border-left-color: $tabBorder;
+                        border-bottom-color: $tabBorder;
+                        border-right-color: $dark-darker;
+
+                        &:focus {
+                            background-color: $dark-darker;
+                            border-top-color: $tabBorder;
+                            border-left-color: $tabBorder;
+                            border-bottom-color: $tabBorder;
+                            border-right-color: $dark-darker;
+                        }
+                    }
+
+                    &:hover, &:focus {
+                        border-left-color: $dark-darker;
+                        border-top-color: $dark-darker;
+                        border-bottom-color: $dark-darker;
+                        border-right-color: $tabBorder;
+                    }
+                }
+
+                &.active {
+                    a, a:hover, a:focus {
+                        background-color: $dark-darker;
+                        border-top-color: $tabBorder;
+                        border-left-color: $tabBorder;
+                        border-bottom-color: $tabBorder;
+                        border-right-color: $dark-darker;
+
+                        color: #ddd;
+                    }
+                }
+            }
+        }
+
+        .tab-pane > .row > div {
+            padding-left: 5px;
+            padding-right: 5px;
+
+            &:first-child {
+                padding-left: 0;
+            }
+
+            &:last-child {
+                padding-right: 0;
+            }
+            
+        }
+
+        .panel-default {
+            border-color: black;
+            background-color: #131313;
+
+            .panel-heading {
+                background-color: #181818;
+                color: #888;
+                border-color: black;
+            }
+
+            .panel-body {
+                color: #333;
+
+                a, a:hover, a:visited {
+                    color: #bbb;
+                }
+            }
+        }
+    }
+}
+
+// Multi level dropdown support for BS3
+
+.dropdown-submenu{
+    position:relative;
+}
+
+.dropdown-submenu > .dropdown-menu
+{
+    top:0;
+    left:100%;
+    margin-top:-6px;
+    margin-left:-1px;
+    -webkit-border-radius:0 6px 6px 6px;
+    -moz-border-radius:0 6px 6px 6px;
+    border-radius:0 6px 6px 6px;
+}
+
+.dropdown-submenu:hover > .dropdown-menu{
+    display:block;
+    @media(max-width:$screen-sm-max) {
+        background-color: $dark2;
+    }
+}
+
+.dropdown-submenu > a:after{
+    display:block;
+    content:" ";
+    float:right;
+    width:0;
+    height:0;
+    border-color:transparent;
+    border-style:solid;
+    border-width:5px 0 5px 5px;
+    border-left-color:#cccccc;
+    margin-top:5px;
+    margin-right:-10px;
+}
+
+.dropdown-submenu:hover > a:after{
+    border-left-color:#ffffff;
+}
+
+.dropdown-submenu .pull-left{
+    float:none;
+}
+
+.dropdown-submenu.pull-left > .dropdown-menu{
+    left:-100%;
+    margin-left:10px;
+    -webkit-border-radius:6px 0 6px 6px;
+    -moz-border-radius:6px 0 6px 6px;
+    border-radius:6px 0 6px 6px;
+}
+
+// Charts
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.axis text {
+    font-size: .8em;
+}
+
+.h.grid {
+    stroke: $chart-grid;
+    fill: none;
+    shape-rendering: crispEdges;
+}
+
+.bar {
+  fill: $chart-bar;
+  opacity: .75;
+
+  &:hover {
+      opacity: 1;
+      fill: $chart-bar-hover;
+  }
+
+  &.negative {
+      fill: $chart-bar-negative;
+
+      &:hover {
+          fill: $chart-bar-negative-hover;
+      }
+  }
+}
+
+.d3-tip {
+  line-height: 1;
+  font-weight: bold;
+  padding: 12px;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  border-radius: 2px;
+
+  span.tooltip-value {
+      color: $chart-bar-hover;
+  }
+
+  span.tooltip-value.negative {
+      color: $chart-bar-negative-hover;
+  }
+}
+
+/* Creates a small triangle extender for the tooltip */
+.d3-tip:after {
+  box-sizing: border-box;
+  display: inline;
+  font-size: 10px;
+  width: 100%;
+  line-height: 1;
+  color: rgba(0, 0, 0, 0.8);
+  content: "\25BC";
+  position: absolute;
+  text-align: center;
+}
+
+/* Style northward tooltips differently */
+.d3-tip.n:after {
+  margin: -1px 0 0 0;
+  top: 100%;
+  left: 0;
+}

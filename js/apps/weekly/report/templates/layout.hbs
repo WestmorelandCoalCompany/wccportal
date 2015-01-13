@@ -1,0 +1,34 @@
+{{!
+{
+    "name": "layout"
+    "desc": "sub layout for the report sub application. Contains paginators to move through reports"
+}
+}}
+<!-- Print -->
+<div class="row no-print">
+    <div class="col-sm-12">
+        <div class="pull-right">
+            <p style="margin-bottom: 0;">
+                <button type="button" class="btn btn-default btn-xs js-print">
+                    <span class="glyphicon glyphicon-print"></span> Print Report
+                </button>
+            </p>
+        </div>
+    </div>
+</div>
+
+<!-- Pagination -->
+<div class="row">
+    <div class="col-sm-12">
+        <nav>
+            <ul class="pager">
+                <li class="previous no-print"><a href="#" class="js-previous-op">Previous</a></li>
+                <li class="text-center"><h3 id="js-current-op" style="display: inline;"></h3></li>
+                <li class="next no-print"><a href="#" class="js-next-op">Next</a></li>
+            </ul>
+        </nav>
+    </div>
+</div>
+
+<!-- Report -->
+<div class="row" id="weekly-report-content"></div>

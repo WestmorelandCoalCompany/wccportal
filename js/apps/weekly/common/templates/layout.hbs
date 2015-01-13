@@ -1,0 +1,50 @@
+{{!
+{
+    "name": "layout",
+    "desc": "Weekly app layout",
+    "styles": ["apps/weekly/common/templates/layout"]
+}
+}}
+<!-- Modal -->
+<div class="row">
+    <div class="col-sm-12" id="weekly-modal"></div>
+</div>
+
+<!-- Header -->
+<div class="row">
+    <div class="col-sm-6 col-md-6">
+        <h3 id="weekly-title"></h3>
+    </div>
+    <div class="col-sm-6 col-md-6">
+        <h3 class="text-right"><small id="weekly-daterange"></small></h3>
+    </div>
+</div>
+
+<!-- Navbar -->
+<div class="row">
+    <div class="col-sm-12">
+        <nav class="navbar navbar-inverse" role="navigation">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#weekly-navbar">
+                    <span class="sr-only">Toggle Navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#" id="weekly-home"></a>
+            </div>
+            <div class="navbar-collapse collapse" id="weekly-navbar">
+                <ul class="nav navbar-nav">
+                    <li><a href="#" id="weekly-report-edit"><span class="glyphicon glyphicon-edit"></span> Edit</a></li>
+                </ul>
+                <div class="navbar-right">
+                    <form class="navbar-form" role="search" id="weekly-date-menu" style="padding-right: 0 !important;"></form>
+                </div>
+                <div class="navbar-right" id="weekly-op-menu"></div>
+            </div>
+        </nav>
+    </div>
+</div>
+
+<!-- Content -->
+<div class="row" id="weekly-content"></div>

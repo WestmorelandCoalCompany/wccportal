@@ -1,0 +1,95 @@
+<div class="row">
+    <div class="col-sm-12">
+        <h3 id="inventory-title">Add Inventory Entry</h3>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12">
+        <div class="alert hidden" id="inventory-message"></div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-4">
+        <div class="form-group">
+            <label for="Operations">Operation</label>
+            <select class="form-control" name="Operations" id="inventory-operations">
+                {{#each operationList}}
+                    <option>{{this.attributes.name}}</option>
+                {{/each}}
+            </select>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="form-group">
+            <label for="Week_Begin">Week Begin</label>
+            <input type="text" name="Week_Begin" class="form-control" id="inventory-week-begin" value="{{Week_Begin}}">
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="form-group">
+            <label for="Week_End">Week End</label>
+            <input type="text" name="Week_End" class="form-control" id="inventory-week-end" value="{{Week_End}}">
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12">
+        <div class="form-group">
+            <label for="OData__Comments">Comments</label>
+            <textarea class="form-control" rows="3" name="OData__Comments" id="inventory-comments">{{OData__Comments}}</textarea>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-6">
+        <div class="form-group">
+            <label for="Beginning_Pit_Inventory">Beginning Pit Inventory</label>
+            <input type="text" class="form-control js-pit" name="Beginning_Pit_Inventory" id="inventory-beginning-pit"
+                   placeholder="0" value="{{Beginning_Pit_Inventory}}">
+        </div>
+        <div class="form-group">
+            <label for="Tons_Unconvered">Tons Uncovered</label>
+            <input type="text" class="form-control js-pit" name="Tons_Unconvered" id="inventory-tons-uncovered"
+                   placeholder="0" value="{{Tons_Unconvered}}">
+        </div>
+        <div class="form-group">
+            <label for="Tons_Produced">Tons Mined</label>
+            <input type="text" class="form-control js-pit" name="Tons_Produced" id="inventory-tons-produced"
+                   placeholder="0" value="{{Tons_Produced}}">
+        </div>
+        <div class="form-group">
+            <label>Ending Pit Inventory</label>
+            <p class="form-control-static" id="inventory-ending-pit"></p>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="form-group">
+            <label for="Beginning_Stockpile_Inventory">Beginning Stockpile Inventory</label>
+            <input type="text" class="form-control js-stockpile" name="Beginning_Stockpile_Inventory" id="inventory-beginning-stockpile"
+                   placeholder="0" value="{{Beginning_Stockpile_Inventory}}">
+        </div>
+        <div class="form-group">
+            <label for="Ending_Stockpile_Inventory">Ending Stockpile Inventory</label>
+            <input type="text" class="form-control js-stockpile" name="Ending_Stockpile_Inventory" id="inventory-ending-stockpile"
+                   placeholder="0" value="{{Ending_Stockpile_Inventory}}">
+        </div>
+        <div class="form-group">
+            <label>Total Ending Inventory</label>
+            <p class="form-control-static" id="inventory-ending-inventory"></p>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-2">
+        <button type="button" class="btn btn-default btn-block js-cancel" id="inventory-cancel">Cancel</button>
+    </div>
+    <div class="col-sm-offset-6 col-sm-2">
+        <button type="button" class="btn btn-danger btn-block js-delete" id="inventory-delete">Delete</button>
+    </div>
+    <div class="col-sm-2">
+        <button type="button" class="btn btn-primary btn-block js-save" id="inventory-save">Save</button>
+    </div>
+</div>
+{{#if Id}}
+    <input type="hidden" name="Id" id="inventory-id" value="{{Id}}">
+{{/if}}

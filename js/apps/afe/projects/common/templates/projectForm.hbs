@@ -1,0 +1,64 @@
+
+<form role="form">
+    <div class="row">
+        <div class="col-sm-12 col-lg-6 col-xlg-12">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label class="control-label" for="Operation">Operation</label>
+                        <select class="form-control" name="Operation" id="afe-operation">
+                            <option selected="true">Select an Operation</option>
+                            {{#each operationsList}}
+                                <option>{{this.attributes.Title}}</option>
+                            {{/each}}
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Ledger</label>
+                        <select class="form-control" id="afe-ledger" disabled>
+                            <option selected="true">Select a Ledger</option>
+                            {{#each ledgersList}}
+                                <option>{{this.attributes.Ledger}}</option>
+                            {{/each}}
+                        </select>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label class="control-label">Year</label>
+                        <select class="form-control" id="afe-year" disabled>
+                            <option selected="true">Select a Year</option>
+                            {{#each yearsList}}
+                                <option>{{this.year}}</option>
+                            {{/each}}
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="Useful_x0020_Life">Useful Life</label>
+                        <input type="text" class="form-control" name="Useful_x0020_Life" id="afe-useful-life" placeholder="0">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <label class="control-label">Work Order</label>
+                        <select class="form-control" id="afe-wo" disabled>
+                            <option selected="true" id="default-option">Select a Work Order</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-8 col-lg-6 col-xlg-12">
+            <div class="form-group">
+                <label class="control-label" for="Notes">Project Notes</label>
+                <textarea name="Notes" class="form-control" rows="6" id="afe-notes" placeholder="Enter project notes here.">{{{Notes}}}</textarea>
+            </div>
+        </div>
+    </div>
+    <input type="hidden" name="Submitted" id="afe-submitted" value="{{Submitted}}">
+    {{#if Id}}
+        <input type="hidden" name="Id" id="afe-id" value="{{Id}}">
+    {{/if}}
+</form>

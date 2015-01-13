@@ -1,0 +1,25 @@
+{{!
+{
+    "name": "summary",
+    "description": "Project Financial Summary"
+}
+}}
+<div class="col-sm-12">
+    <button type="button" role="button" class="btn btn-default pull-right js-calc" style="margin-bottom: 10px;">Recalculate</button>
+    <table class="table table-striped">
+        <tbody>
+            <tr>
+                <td>NPV</td>
+                <td id="afe-npv" class="text-right">{{npv}}</td>
+            </tr>
+            <tr>
+                <td>IRR</td>
+                <td id="afe-irr" class="text-right">{{irr}}</td>
+            </tr>
+            <tr>
+                <td>PBP</td>
+                <td id="afe-pbp" class="text-right">{{pbp}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

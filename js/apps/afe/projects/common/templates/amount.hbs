@@ -1,0 +1,73 @@
+{{!
+{
+    "name": "amount",
+    "description": "A dynamic table to hold AFE amounts",
+    "styles": ["apps/afe/projects/common/templates/amount"]
+}
+}}
+<div class="col-sm-12">
+    <table class="table table-responsive" id="afe-requested-amounts-table">
+        <thead>
+        <tr>
+            <th>Description</th>
+            {{#each columns}}
+                <th class="text-center">{{this.display}}</th>
+            {{/each}}
+            <th class="text-center js-total-col">Total</th>
+            {{#if showDelete}}
+                <td></td>
+            {{/if}}
+        </tr>
+        </thead>
+        <tbody>
+        {{#each rows}}
+            <tr data-id="{{this.row}}">
+                <td class="js-desc">
+                    {{#if isReadOnly}}
+                        <strong>{{this.row}}</strong>
+                    {{else}}
+                        <input type="text" class="form-control js-desc" value="{{this.row}}">
+                    {{/if}}
+                </td>
+                {{#columns}}
+                    <td class="text-right tpl-{{label}}"></td>
+                {{/columns}}
+                <td class="js-total-col"><p class="js-total text-right"></p></td>
+                {{#if showDelete}}
+                    <td>
+                        <button type="button" role="button" class="btn btn-danger js-delete" data-id="{{this.row}}">Delete</button>
+                    </td>
+                {{/if}}
+            </tr>
+        {{/each}}
+        {{#if showTotalRow}}
+            <tr data-id="Total">
+                <td>Total</td>
+                {{#each columns}}
+                    <td class="text-right tpl-{{this.label}}"></td>
+                {{/each}}
+                <td class="js-total-col"></td>
+                {{#if showDelete}}
+                    <td></td>
+                {{/if}}
+            </tr>
+        {{/if}}
+        <tr>
+            <td></td>
+            {{#columns}}
+                <td></td>
+            {{/columns}}
+            {{#if showDelete}}
+                <td class="js-total-col"></td>
+            {{/if}}
+            <td>
+                <button class="btn btn=default pull-right js-add" type="button" role="button">
+                    <span class="glyphicon glyphicon-plus"></span> Add Row
+                </button>
+            </td>
+
+        </tr>
+        </tbody>
+    </table>
+</div>
+

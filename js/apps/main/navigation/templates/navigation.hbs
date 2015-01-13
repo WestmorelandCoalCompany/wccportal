@@ -1,0 +1,46 @@
+﻿{{#each items}}
+<li class="dropdown">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+        {{this.name}}
+        <span class="caret"></span>
+    </a>
+    {{#if this.children}}
+    <ul class="dropdown-menu" role="menu">
+        {{#each this.children}}
+        <li class="{{#if this.children}}dropdown-submenu{{/if}}">
+            {{#if this.properties.Event}}
+                <a href="{{this.properties.Event}}" class="event">
+            {{else}}
+                {{#if this.properties._Sys_Nav_SimpleLinkUrl}}
+                    <a href="{{this.properties._Sys_Nav_SimpleLinkUrl}}" class="link">
+                {{else}}
+                        <a href="" class="link">
+                            {{/if}}
+                            {{/if}}
+                            {{this.name}}
+                        </a>
+            {{#if this.children}}
+            <ul class="dropdown-menu" role="menu">
+                {{#each this.children}}
+                <li>
+                    {{#if this.properties.Event}}
+                        <a href="{{this.properties.Event}}" class="event">
+                    {{else}}
+                        {{#if this.properties._Sys_Nav_SimpleLinkUrl}}
+                            <a href="{{this.properties._Sys_Nav_SimpleLinkUrl}}" class="link">
+                        {{else}}
+                                <a href="" class="link">
+                                    {{/if}}
+                                    {{/if}}
+                                    {{this.name}}
+                                </a>
+                </li>
+                {{/each}}
+            </ul>
+            {{/if}}
+        </li>
+        {{/each}}
+    </ul>
+    {{/if}}
+</li>
+{{/each}}

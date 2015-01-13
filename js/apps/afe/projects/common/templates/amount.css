@@ -1,0 +1,11 @@
+#afe-requested-amounts-table td {
+    vertical-align: middle;
+}
+
+#afe-requested-amounts-table td p {
+    margin: 0;
+}
+
+#afe-requested-amounts-table td.js-total-col {
+    min-width: 100px;
+}

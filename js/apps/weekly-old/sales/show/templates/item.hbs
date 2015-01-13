@@ -1,0 +1,65 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">{{Operations}}</h3>
+    </div>
+    <div class="panel-body">
+        <h3 style="margin-top: 0;"><small>Comments:</small></h3>
+        <p>{{OData__Comments}}</p>
+        <div class="row">
+            <div class="col-md-4">
+                <h3><small>This Week</small></h3>
+                <table class="table table-bordered">
+                    <tr>
+                        <td>Actual</td>
+                        <td>{{formatCommas Actual_Tons}}</td>
+                    </tr>
+                    <tr>
+                        <td>Forecast</td>
+                        <td>{{formatCommas Forecast_Tons}}</td>
+                    </tr>
+                    <tr>
+                        <td>Budget</td>
+                        <td>{{formatCommas Budget_Tons}}</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-md-4">
+                <h3><small>Month to Date</small></h3>
+                <table class="table table-bordered">
+                    <tr>
+                        <td>Actual</td>
+                        <td>{{formatCommas MTD_Actual_Tons}}</td>
+                    </tr>
+                    <tr>
+                        <td>Forecast</td>
+                        <td>{{formatCommas MTD_Forecast_Tons}}</td>
+                    </tr>
+                    <tr>
+                        <td>Budget</td>
+                        <td>{{formatCommas MTD_Budget_Tons}}</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-md-4">
+                <h3><small>Year to Date</small></h3>
+                <table class="table table-bordered">
+                    <tr>
+                        <td>Actual</td>
+                        <td>{{formatCommas YTD_Actual_Tons}}</td>
+                    </tr>
+                    <tr>
+                        <td>Forecast</td>
+                        <td>{{formatCommas YTD_Forecast_Tons}}</td>
+                    </tr>
+                    <tr>
+                        <td>Budget</td>
+                        <td>{{formatCommas YTD_Budget_Tons}}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="pull-right">
+            <button type="button" class="btn btn-default js-edit">Edit</button>
+        </div>
+    </div>
+</div>

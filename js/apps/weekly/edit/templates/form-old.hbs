@@ -1,0 +1,278 @@
+{{!
+{
+    "name": "opLayout",
+    "description": "A navbar dropdown shell",
+    "styles": ["apps/weekly/common/templates/layout"]
+}
+}}
+<div class="row">
+    <div class="col-sm-12">
+        <button type="button" role="button" style="margin-bottom: 15px;" class="btn btn-default js-back">Back to Entry List</button>
+    </div>
+    <div class="col-sm-12">
+        <div class="alert hidden" id="form-message"></div>
+    </div>
+</div>
+<form class="form-horizontal" id="weekly-form" role="form">
+
+    <!-- Operation and Date -->
+    <div class="well">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="form-group" style="margin-bottom: 0;">
+                    <label class="control-label col-sm-2" for="Operations">Operation</label>
+                    <div class="col-sm-3">
+                        <select name="Operation" id="Operation" class="form-control">
+                            {{#each operationsList}}
+                                <option>{{Title}}</option>
+                            {{/each}}
+                        </select>
+                    </div>
+                    <label for="Week_Begin" class="control-label col-sm-2">Week Begin</label>
+                    <div class="col-sm-3">
+                        <input type="text" class="form-control text-center" name="Week_Begin" id="Week_Begin">
+                    </div>
+                    <div class="col-sm-1">
+                        <button class="btn btn-danger pull-right js-delete">Delete</button>
+                    </div>
+                    <div class="col-sm-1">
+                        <button class="btn btn-primary pull-right js-save">Save</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Safety -->
+    <div class="well">
+        <div class="row">
+            <!-- Header -->
+            <div class="col-sm-12">
+                <h3>Safety</h3>
+            </div>
+            <div class="col-md-12 col-lg-7">
+
+                <!-- Top Labels -->
+                <div class="form-group">
+                    <label class="col-sm-offset-3 col-sm-3 text-center">Weekly</label>
+                    <label class="col-sm-3 text-center">MSHA YTD</label>
+                    <label class="col-sm-3 text-center">LTI YTD</label>
+                </div>
+
+                <!-- Hourly -->
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Hourly</label>
+                    <div class="col-sm-3">
+                        <input type="text" class="form-control text-center" name="MSHA_Weekly_Hourly" id="MSHA_Weekly_Hourly" value="{{MSHA_Weekly_Hourly}}">
+                    </div>
+                    <div class="col-sm-3">
+                        <input type="text" class="form-control text-center" name="MSHA_YTD_Hourly" id="MSHA_YTD_Hourly" value="{{MSHA_YTD_Hourly}}">
+                    </div>
+                    <div class="col-sm-3">
+                        <input type="text" class="form-control text-center" name="LTI_YTD_Hourly" id="LTI_YTD_Hourly" value="{{LTI_YTD_Hourly}}">
+                    </div>
+                </div>
+
+                <!-- Salaried -->
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Salaried</label>
+                    <div class="col-sm-3">
+                        <input type="text" class="form-control text-center" name="MSHA_Weekly_Salaried" id="MSHA_Weekly_Salaried" value="{{MSHA_Weekly_Salaried}}">
+                    </div>
+                    <div class="col-sm-3">
+                        <input type="text" class="form-control text-center" name="MSHA_YTD_Salaried" id="MSHA_YTD_Salaried" value="{{MSHA_YTD_Salaried}}">
+                    </div>
+                    <div class="col-sm-3">
+                        <input type="text" class="form-control text-center" name="LTI_YTD_Salaried" id="LTI_YTD_Salaried" value="{{LTI_YTD_Salaried}}">
+                    </div>
+                </div>
+
+                <!-- Contractor -->
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Contractor</label>
+                    <div class="col-sm-3">
+                        <input type="text" class="form-control text-center" name="MSHA_Weekly_Contractor" id="MSHA_Weekly_Contractor" value="{{MSHA_Weekly_Contractor}}">
+                    </div>
+                    <div class="col-sm-3">
+                        <input type="text" class="form-control text-center" name="MSHA_YTD_Contractor" id="MSHA_YTD_Contractor" value="{{MSHA_YTD_Contractor}}">
+                    </div>
+                    <div class="col-sm-3">
+                        <input type="text" class="form-control text-center" name="LTI_YTD_Contractor" id="LTI_YTD_Contractor" value="{{LTI_YTD_Contractor}}">
+                    </div>
+                </div>
+
+                <!-- Days Since Last -->
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Days Since Last</label>
+                    <div class="col-sm-offset-3 col-sm-3">
+                        <input type="text" class="form-control text-center" name="MSHA_Days_Since_Last" id="MSHA_Days_Since_Last" value="{{MSHA_Days_Since_Last}}">
+                    </div>
+                    <div class="col-sm-3">
+                        <input type="text" class="form-control text-center" name="LTI_Days_Since_Last" id="LTI_Days_Since_Last" value="{{LTI_Days_Since_Last}}">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 col-lg-5">
+                <!-- Safety Comments -->
+                <div class="form-group">
+                    <label class="col-sm-12">Safety Comments</label>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-12">
+                        <textarea rows="9" name="Safety_Comments" id="Safety_Comments" class="form-control">{{Safety_Comments}}</textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Safety -->
+    </div>
+
+    <!-- Sales -->
+    <div class="well">
+        <div class="row">
+            <!-- Header -->
+            <div class="col-sm-12">
+                <h3>Sales</h3>
+            </div>
+            <div class="col-md-12 col-lg-7">
+                <!-- Top Labels -->
+                <div class="form-group">
+                    <label class="col-sm-offset-3 col-sm-3 text-center">Actual</label>
+                    <label class="col-sm-3 text-center">Forecast</label>
+                    <label class="col-sm-3 text-center">Budget</label>
+                </div>
+
+                <!-- Hourly -->
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Week</label>
+                    <div class="col-sm-3">
+                        <input type="text" class="form-control text-right" name="Sales_Weekly_Actual" id="Sales_Weekly_Actual" value="{{Sales_Weekly_Actual}}">
+                    </div>
+                    <div class="col-sm-3">
+                        <input type="text" class="form-control text-right" name="Sales_Weekly_Forecast" id="Sales_Weekly_Forecast" value="{{Sales_Weekly_Forecast}}">
+                    </div>
+                    <div class="col-sm-3">
+                        <input type="text" class="form-control text-right" name="Sales_Weekly_Budget" id="Sales_Weekly_Budget" value="{{Sales_Weekly_Budget}}">
+                    </div>
+                </div>
+
+                <!-- Salaried -->
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Month</label>
+                    <div class="col-sm-3">
+                        <input type="text" class="form-control text-right" name="Sales_Monthly_Actual" id="Sales_Monthly_Actual" value="{{Sales_Monthly_Actual}}">
+                    </div>
+                    <div class="col-sm-3">
+                        <input type="text" class="form-control text-right" name="Sales_Monthly_Forecast" id="Sales_Monthly_Forecast" value="{{Sales_Monthly_Forecast}}">
+                    </div>
+                    <div class="col-sm-3">
+                        <input type="text" class="form-control text-right" name="Sales_Monthly_Budget" id="Sales_Monthly_Budget" value="{{Sales_Monthly_Budget}}">
+                    </div>
+                </div>
+
+                <!-- Contractor -->
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Year to Date</label>
+                    <div class="col-sm-3">
+                        <input type="text" class="form-control text-right" name="Sales_YTD_Actual" id="Sales_YTD_Actual" value="{{Sales_YTD_Actual}}">
+                    </div>
+                    <div class="col-sm-3">
+                        <input type="text" class="form-control text-right" name="Sales_YTD_Forecast" id="Sales_YTD_Forecast" value="{{Sales_YTD_Forecast}}">
+                    </div>
+                    <div class="col-sm-3">
+                        <input type="text" class="form-control text-right" name="Sales_YTD_Budget" id="Sales_YTD_Budget" value="{{Sales_YTD_Budget}}">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 col-lg-5">
+
+                <!-- Safety Comments -->
+                <div class="form-group">
+                    <label class="col-sm-12">Customer Comments</label>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-12">
+                        <textarea rows="9" name="Customer_Comments" id="Customer_Comments" class="form-control">{{Customer_Comments}}</textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Sales -->
+
+    <!-- Inventory -->
+    <div class="well">
+        <div class="row">
+            <!-- Header -->
+            <div class="col-sm-12">
+                <h3>Inventory</h3>
+            </div>
+
+            <div class="col-md-6 col-lg-7">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <!-- Inventory Table -->
+                        <div class="form-group">
+                            <label class="col-sm-7 control-label">Beginning Pit Inv.</label>
+                            <div class="col-sm-5">
+                                <input type="text" class="form-control text-right" name="Beg_Pit_Inv" id="Beg_Pit_Inv" value="{{Beg_Pit_Inv}}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-7 control-label">Tons Uncovered</label>
+                            <div class="col-sm-5">
+                                <input type="text" class="form-control text-right" name="Tons_Uncovered" id="Tons_Uncovered" value="{{Tons_Uncovered}}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-7 control-label">Tons Mined</label>
+                            <div class="col-sm-5">
+                                <input type="text" class="form-control text-right" name="Tons_Produced" id="Tons_Produced" value="{{Tons_Produced}}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-7 control-label">Ending Pit Inv.</label>
+                            <div class="col-sm-5">
+                                <p id="ending-pit text-right"></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label class="col-sm-7 control-label">Beginning Stockpile Inv.</label>
+                            <div class="col-sm-5">
+                                <input type="text" class="form-control text-right" name="Beg_Stockpile_Inv" id="Beg_Stockpile_Inv" value="{{Beg_Stockpile_Inv}}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-7 control-label">Ending Stockpile Inv.</label>
+                            <div class="col-sm-5">
+                                <input type="text" class="form-control text-right" name="End_Stockpile_Inv" id="End_Stockpile_Inv" value="{{End_Stockpile_Inv}}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-7 control-label">Total Inv.</label>
+                            <div class="col-sm-5">
+                                <p id="total-inv text-right"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 col-lg-5">
+
+                <!-- Safety Comments -->
+                <div class="form-group">
+                    <label class="col-sm-12">Customer Comments</label>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-12">
+                        <textarea rows="9" name="Operations_Comments" id="Operations_Comments" class="form-control">{{Operations_Comments}}</textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Inventgory -->
+    
+</form>

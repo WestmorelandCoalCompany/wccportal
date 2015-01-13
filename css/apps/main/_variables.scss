@@ -1,0 +1,30 @@
+﻿// Utility classes
+@import "../../bootstrap/stylesheets/bootstrap/_utilities.scss";
+
+// Colors
+$dark1: #151515;
+$dark2: #000000;
+$dark3: #222222;
+$dark4: #090909;
+$light1: #777777;
+$light2: #dddddd;
+$ribbonHighlight: $dark1;
+$tabBorder: #8B8B8B;
+
+// submenu
+$submenu_bg: $dark4;
+$submenu_color: $light2;
+$submenu_a_color: $light1;
+$submenu_max_height: 340px;
+$submenu_top_padding: 15px;
+$submenu_left_padding: 15px;
+$submenu_mobile_top_padding: 10px;
+$submenu_mobile_left_padding: 10px;
+
+// Dimensions
+$body_top_padding: 25px;
+$body_left_padding: 25px;
+
+body {
+    padding: 0;
+}

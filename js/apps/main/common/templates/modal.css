@@ -1,0 +1,11 @@
+.modal-content {
+    z-index: 2000;
+}
+
+.modal-dialog {
+    z-index: 1999;
+}
+
+.modal button {
+    min-width: 0;
+}

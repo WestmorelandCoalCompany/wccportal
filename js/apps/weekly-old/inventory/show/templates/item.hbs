@@ -1,0 +1,65 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">{{Operations}}</h3>
+    </div>
+    <div class="panel-body">
+        <h3 style="margin-top: 0;"><small>Comments:</small></h3>
+        <p>{{OData__Comments}}</p>
+        <div class="row">
+            <div class="col-md-4">
+                <h3><small>Pit Inventory</small></h3>
+                <table class="table table-bordered">
+                    <tr>
+                        <td>Beginning Inventory</td>
+                        <td>{{formatCommas Beginning_Pit_Inventory}}</td>
+                    </tr>
+                    <tr>
+                        <td>Tons Uncovered</td>
+                        <td>{{formatCommas Tons_Unconvered}}</td>
+                    </tr>
+                    <tr>
+                        <td>Tons Mined</td>
+                        <td>{{formatCommas Tons_Produced}}</td>
+                    </tr>
+                    <tr>
+                        <td>Ending Inventory</td>
+                        <td>{{formatCommas endingPitInventory}}</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-md-4">
+                <h3><small>Stockpile Inventory</small></h3>
+                <table class="table table-bordered">
+                    <tr>
+                        <td>Beginning Inventory</td>
+                        <td>{{formatCommas Beginning_Stockpile_Inventory}}</td>
+                    </tr>
+                    <tr>
+                        <td>Ending Inventory</td>
+                        <td>{{formatCommas Ending_Stockpile_Inventory}}</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-md-4">
+                <h3><small>Total Inventory</small></h3>
+                <table class="table table-bordered">
+                    <tr>
+                        <td>Ending Pit Inventory</td>
+                        <td>{{formatCommas endingPitInventory}}</td>
+                    </tr>
+                    <tr>
+                        <td>Ending Stockpile Inventory</td>
+                        <td>{{formatCommas Ending_Stockpile_Inventory}}</td>
+                    </tr>
+                    <tr>
+                        <td>Total Ending Inventory</td>
+                        <td>{{formatCommas totalInventory}}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="pull-right">
+            <button type="button" class="btn btn-default js-edit">Edit</button>
+        </div>
+    </div>
+</div>

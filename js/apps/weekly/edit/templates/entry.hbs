@@ -1,0 +1,25 @@
+<td class="Week_Begin">{{Week_Begin}}</td>
+<td class="Operation">{{Operation}}</td>
+<td class="Created">{{Created}}</td>
+<td>
+    {{#if Author.Title}}
+        {{Author.Title}}
+    {{else}}
+        <i>Pending...</i>
+    {{/if}}
+</td>
+<td class="Modified">{{Modified}}</td>
+<td>
+    {{#if Editor.Title}}
+        {{Editor.Title}}
+    {{else}}
+        <i>Pending...</i>
+    {{/if}}
+
+</td>
+<td class="text-center">
+    {{#if Published}}
+        <span class="glyphicon glyphicon-ok" style="color: forestgreen;"></span>
+    {{/if}}
+</td>
+<td class="xxxxx">{{#unless isReadOnly}}<button type="button" role="button" class="btn btn-primary pull-right js-edit">Edit</button>{{/unless}}</td>
