@@ -1,0 +1,38 @@
+{{!
+    {
+        "name": "layout",
+        "desc": "Project sub layout"
+    }
+}}
+<!-- Navigation Row -->
+<div class="row">
+    <div class="col-xs-12 col-md-7 col-lg-9">
+        <div class="btn-group" style="float: left; display: inline-block; clear: none;">
+            <button type="button" class="btn btn-default" id="afe-list-year" style="margin-top: 2px;"></button>
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
+                    aria-expanded="false" style="margin-right: 20px; margin-top: 2px;">
+                <span class="caret"></span>
+                <span class="sr-only">Toggle Dropdown</span>
+            </button>
+            <ul class="dropdown-menu" role="menu" id="afe-list-year-menu"></ul>
+        </div>
+        <ul class="nav nav-pills"  style="float: left;" role="tablist">
+            <li role="presentation"><a href="#" id="afe-create">Create New AFE</a></li>
+            <li role="presentation">
+                <a href="#" id="afe-tasks">Tasks <span class="badge" id="afe-task-count">0</span></a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="col-xs-12 col-md-4 col-lg-3 text-right">
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search Projects">
+            <span class="input-group-btn">
+                <button type="button" class="btn btn-primary js-filter">Filter</button>
+            </span>
+        </div>
+    </div>
+</div>
+
+<!-- Project List -->
+<div class="row" id="afe-project-list"></div>

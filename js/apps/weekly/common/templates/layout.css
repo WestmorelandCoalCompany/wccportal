@@ -8,6 +8,14 @@
 }
 
 @media print {
+    html, body {
+        height: auto !important;
+    }
+
+    #deltaPlaceholderMain .container:first-child {
+        padding-top: 0 !important;
+    }
+
     #contentRow {
         padding-top: 0 !important;
     }
@@ -16,11 +24,16 @@
         overflow-y: visible !important;
     }
 
+    div#suiteBar {
+        display: none !important;
+    }
+
     #s4-titlerow {
-        margin-bottom: 0 !important;
+        margin: 0 !important;
         opacity: 0 !important;
         height: 1px !important;
         overflow-y: hidden;
+        padding: 0 !important;
     }
 
     #wccheader {
@@ -32,12 +45,11 @@
     }
 
     @page {
-        size: auto;
-        margin: 15mm 0mm 15mm 0mm;
-    }
-
-    @page :first {
-        margin-top: 0mm;
+        size: auto !important;
+        margin-top: 8mm !important;
+        margin-right: 1cm !important;
+        margin-bottom: 10mm !important;
+        margin-left: 1cm;
     }
 
     body {

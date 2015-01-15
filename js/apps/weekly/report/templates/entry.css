@@ -1,0 +1,32 @@
+@media print {
+  #weekly-report-content .table:last-of-type {
+    margin-bottom: 0 !important;
+  }
+}
+#weekly-report-content .safety-header h4 {
+  display: inline !important;
+}
+@media print {
+  #weekly-report-content .safety-header h4 {
+    display: block;
+  }
+}
+#weekly-report-content .page-header {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding-bottom: 0;
+}
+#weekly-report-content thead tr {
+  background-color: #223A4F;
+  color: white;
+}
+#weekly-report-content #weekly-production-table thead tr:first-child th {
+  border-bottom-style: none !important;
+}
+#weekly-report-content #weekly-production-table thead tr:last-child th {
+  border-top-style: none !important;
+}
+#weekly-report-content #weekly-production-table thead th {
+  padding-top: 3px !important;
+  padding-bottom: 3px !important;
+}

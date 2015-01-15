@@ -1,26 +1,26 @@
+/*
+ *  name: views
+ *  path: apps/afe/views
+ *  desc: Application views
+ */
+
 define([
-    'app',
-    'hbs!apps/main/common/templates/modal',
-    'hbs!apps/afe/common/templates/layout'
-], function (App, modalTpl, layoutTpl) {
-    App.module('AFE.Views', {
-        define: function (Views, App, Backbone, Marionette, $, _) {
-            Views.LayoutView = Marionette.LayoutView.extend({
-                // Configuration
-                template: layoutTpl,
+    'marionette',
+    'hbs!apps/afe/templates/layout'
+], function (Marionette, LayoutTpl) {
+    var Views = {};
 
-                // Regions
-                regions: {
-                    modalRegion: '#afe-modal',
-                    contentRegion: '#afe-content'
-                }
-            });
-
-            Views.ModalView = M.ModalView.extend({
-                template: modalTpl
-            });
+    // AFE layout
+    Views.LayoutView = Marionette.LayoutView.extend({
+        template: LayoutTpl,
+        className: 'container-fluid',
+        attributes: {
+            'id': 'afe-root'
+        },
+        regions: {
+            contentRegion: '#afe-content'
         }
     });
 
-    return App.AFE.Views;
+    return Views;
 });

@@ -3,7 +3,9 @@
     'paths': {
         // Backbone & plugins
         'backbone': 'libs/backbone/backbone',
+        'backbone.backgrid': 'libs/backbone/plugins/backgrid/backgrid',
         'backbone.grouped': 'libs/backbone/plugins/entities/backbone.grouped-collection',
+        'backbone.paginator': 'libs/backbone/plugins/paginator/backbone.paginator.min',
         'backbone.picky': 'libs/backbone/plugins/entities/backbone.picky.min',
         'backbone.picky.models': 'apps/utils/backbone.picky.models',
         'backbone.radio': 'libs/backbone/plugins/radio/backbone.radio',
@@ -60,7 +62,9 @@
             exports: 'Backbone',
             deps: ['jquery', 'underscore']
         },
+        'backbone.backgrid': ['backbone'],
         'backbone.grouped': ['backbone', 'backbone.vc'],
+        'backbone.paginator': ['backbone'],
         'backbone.radio': ['backbone'],
         'backbone.radio.shim': ['backbone', 'backbone.radio'],
         'backbone.relational': ['underscore', 'backbone'],

@@ -228,6 +228,15 @@
     });
 
     _.extend(Controller.prototype, Events, Requests, Commands, {
+        requireController: function(name, path, containerOptions, objectOptions) {
+            containerOptions || (containerOptions = {});
+            objectOptions || (objectOptions = {});
+
+            require([path], _.bind(function(C) {
+                this.initController(name, C.Controller, containerOptions, objectOptions)
+            }, this));
+        },
+
         initCollection: function (name, Collection, options, objOptions) {
             this._initObject('collections', name, Collection, options, objOptions);
         },
@@ -251,19 +260,18 @@
                 defer = $.Deferred();
 
             _.extend(options, {
-                deferred: defer
+                deferred: defer,
+                success: function () {
+                    defer.resolve(collection);
+                },
+                error: function () {
+                    defer.fail();
+                }
             });
 
             if (!collection || (!(collection instanceof Backbone.Collection))) return void 0;
             if (collection.length == 0 || options.update) {
-                collection.fetch({
-                    success: function () {
-                        defer.resolve(collection);
-                    },
-                    error: function () {
-                        defer.fail();
-                    }
-                });
+                collection.fetch(options);
             }
             else {
                 defer.resolve(collection);
@@ -396,6 +404,29 @@
     //  Views
     //  -----
     //region Views
+
+    // M.ModelMapView
+    var ModelMapView = M.ModelMapView = Marionette.ItemView.extend({
+        mapId: null,
+        renderChild: function(view, selector) {
+            var el = (selector instanceof $) ? selector : this.$(selector);
+            view.setElement(el).render();
+        },
+        render: function() {
+            this._validate();
+            Marionette.ItemView.prototype.render.call(this);
+            this.collection.each(function(model) {
+                var view = new this.childView({model: model});
+                this.renderChild(view, this.mapId(model));
+            }, this);
+        },
+        _validate: function() {
+            if (!this.collection) throw new Error('ModelMapView requires a collection.');
+            if (!this.childView) throw new Error('ModelMapView requires a childView to be specified.');
+            if (!(this.childView instanceof Backbone.View) && (!this.childView instanceof Marionette.View)) throw new Error('ModelMapView: Invalid ChildView');
+            if (!this.mapId || !_.isFunction(this.mapId)) throw new Error('ModelMapView requires a valid mapId function.');
+        }
+    });
 
     // M.ModalView
     var ModalView = M.ModalView = Marionette.ItemView.extend({
